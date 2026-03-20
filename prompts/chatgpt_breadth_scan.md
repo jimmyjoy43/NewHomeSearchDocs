@@ -12,7 +12,7 @@ My canonical project repo is at: https://github.com/jimmyjoy43/NewHomeSearchDocs
 Read README.md and data/buildings.csv before doing anything else.
 
 Task: Do a breadth-first scan of luxury apartments in Hollywood and West Hollywood.
-Target zone: within 1.5 miles of 1540 Vine St, Hollywood CA 90028.
+Target zone: within 2.5 miles of 1540 Vine St, Hollywood CA 90028.
 Rent range: $3,800 to $5,300 all-in.
 Required: cat-friendly, in-unit laundry, gym, secure access, controlled parking.
 Disqualifiers: AI-only leasing contact, 1-star maintenance reviews, known noise enforcement failures.
