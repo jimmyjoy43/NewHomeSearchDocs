@@ -1,0 +1,48 @@
+name: Rebuild markdown reports
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/buildings.csv'
+      - 'data/tours.csv'
+
+  workflow_dispatch:  # allow manual trigger from GitHub UI
+
+jobs:
+  rebuild-docs:
+    runs-on: ubuntu-latest
+
+    # Don't run if the last commit was from this workflow itself (avoid loops)
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          # Need a token that can push back to the repo
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Validate buildings.csv
+        run: python scripts/validate_csv.py data/buildings.csv
+
+      - name: Regenerate markdown reports
+        run: python scripts/generate_markdown_reports.py
+
+      - name: Commit regenerated docs if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/02_neighborhood_breadth_scan.md docs/10_unit_comparison.md
+          # Only commit if something actually changed
+          git diff --cached --quiet || git commit -m "chore: regenerate markdown reports [skip ci]"
+          git push

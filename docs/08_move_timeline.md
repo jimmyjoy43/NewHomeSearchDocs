@@ -6,11 +6,14 @@
 - Target move-in date: april 20 2026
 
 ## Decision gates
-- [ ] Tour shortlist buildings by: [date]
-- [ ] Eliminate buildings with red flags by: [date]
-- [ ] Apply to top 2 choices by: [date]
-- [ ] Sign lease by: april 12 2026
-- [ ] Schedule movers by: april 13 2026
+- [ ] Run breadth scan and populate buildings.csv: March 21
+- [ ] Schedule tours for top 3-5 buildings: March 22-23
+- [ ] Complete all tours: March 28
+- [ ] Eliminate red-flag buildings: March 29
+- [ ] Apply to top 2 choices: April 1
+- [ ] Sign lease: April 12
+- [ ] Schedule movers: April 13
+- [ ] Move-in: April 20
 
 ## Risk
 If move-out date is uncertain, set a personal decision deadline anyway.
