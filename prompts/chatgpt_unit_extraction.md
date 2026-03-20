@@ -38,6 +38,9 @@ Rules:
 - If net_effective_rent differs from base_rent due to concessions, calculate it
   as: base_rent minus (total free rent value / lease term months).
 - Flag any unit where management_score would be 2 or below with a note in remarks.
+- For available_date: use YYYY-MM-DD format only. If the listing says
+  "available now" or "immediate", use today's date in YYYY-MM-DD format.
+  Never use the words "Now", "Immediate", "ASAP", or any non-date string.
 
 After the CSV output, add a single section called:
 ## Red flags for [BUILDING NAME]
