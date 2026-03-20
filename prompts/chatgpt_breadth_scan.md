@@ -27,7 +27,10 @@ Rules:
 - For scores (quiet_score, management_score, amenity_score, adult_vibe_score): use 1-5.
   Leave blank if you cannot score from available data.
 - Flag any building where management_score would be 2 or below with a note in remarks.
-
+- For available_date: use YYYY-MM-DD format only. If the listing says
+  "available now" or "immediate", use today's date in YYYY-MM-DD format.
+  Never use the words "Now", "Immediate", "ASAP", or any non-date string.
+  
 After the CSV block, output a section called:
 ## Red flags summary
 One line per building that has a flag. Format: "BuildingName: reason"
